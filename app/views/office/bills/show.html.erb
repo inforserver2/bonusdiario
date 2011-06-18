@@ -1,0 +1,46 @@
+<h2>Fatura</h2>
+<p>Seja bem vindo <b><%= @bill.contract.user.nick %></b></p>
+<table cellspacing="0">
+  <caption>Dados importantes</caption>
+  <tr><th>Login:</th><td><%= @bill.contract.user.name %></td></tr>
+  <tr><th>Site de divulgação:</th><td><%= link_to root_url(:subdomain=>@bill.contract.user.name), root_url(:subdomain=>@bill.contract.user.name) %></td></tr>
+  <tr><th>Escritório virtual:</th><td><%= link_to office_url(:subdomain=>@bill.contract.user.name), office_url(:subdomain=>@bill.contract.user.name) %></td></tr>
+</table>
+<p>Dica: memorize sua senha!</p>
+<p>Seu site de divulgação ficará ativo logo que identificarmos o seu pagamento.</p>
+
+  <table width="100%">
+       <caption>Meios de pagamento</caption>
+        <tr>
+          <td>
+              <%=form_tag payments_via_path, :method=>:post, :target => '_blank' do  %>
+              <%=hidden_field_tag :id, @bill.id %>
+              <%=hidden_field_tag :key, @bill.token %>
+              <%=hidden_field_tag :way, 'boleto' %>
+                <p>Boleto bancário</p>
+                <span style="display:block">tx. <%= CFG['payments']['boleto']['real']['tax'].reais_contabeis %></span>
+                <%=image_tag "payways/boleto.gif" %>
+                <p> <%= (@bill.value+CFG['payments']['boleto']['real']['tax']).reais_contabeis %>
+                <%=submit_tag 'Gerar boleto',:confirm => 'Esta requisição vai carregar em uma uma nova pagina.'%></p>
+               <% end %>
+          </td>
+          <td>
+              <%=form_tag payments_via_path, :method=>:post, :target => '_blank'  do %>
+              <%=hidden_field_tag :id, @bill.id %>
+              <%=hidden_field_tag :key, @bill.token %>
+              <%=hidden_field_tag :way, 'paypal' %>
+
+                <p>Cartão de crédito</p>
+
+                <% final_value = ( @bill.value / CFG['payments']['paypal']['factor'] ) %>
+                <% final_value += ( final_value * CFG['payments']['paypal']['porcentage'] ) %>
+
+                <span style="display:block">tx. <%=(final_value-@bill.value).reais_contabeis %> </span>
+                <%=image_tag "payways/paypal.gif" %>
+                <p> <%=final_value.reais_contabeis %>
+                <%=submit_tag 'Pagar via paypal',:confirm => 'Esta requisição vai carregar em uma uma nova pagina.'%></p>
+              <% end %>
+          </td>
+        </tr>
+      </table>
+

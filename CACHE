@@ -1,0 +1,8 @@
+office/user_show [renew]
+office/monitor [1.hour]
+office/home (monitor/comm stats [observer]/payout stats [observer]/user_show)
+office/cycles/show [1.hour] 
+office/cycles/xxx/info [6.hours]
+
+
+

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  sponsor_id: 1
+  cycle: 
+  status: 1
+  sponsors_count: 1
+
+two:
+  user: 
+  sponsor_id: 1
+  cycle: 
+  status: 1
+  sponsors_count: 1

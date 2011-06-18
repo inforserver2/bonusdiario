@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bill: 
+  value: 1.5
+  status: 1
+  payout: 
+
+two:
+  bill: 
+  value: 1.5
+  status: 1
+  payout: 
+
+# == Schema Information
+#
+# Table name: comms
+#
+#  id           :integer(4)      not null, primary key
+#  bill_id      :integer(4)
+#  value        :float
+#  status       :integer(4)      default(0)
+#  comm_type_id :integer(4)
+#  user_id      :integer(4)
+#  payout_id    :integer(4)
+#  created_at   :datetime
+#  updated_at   :datetime
+#
+

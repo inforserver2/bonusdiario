@@ -1,0 +1,13 @@
+<p>
+  <strong><%= @cycle.contract.user.nick %></strong>,foi cadastrado um novo ciclo pra você.</p>
+<p>Segue referência:</p>
+<p>
+  <strong>Ciclo</strong> <%=@cycle.id %><br />
+  <strong>Nível</strong> <%=@cycle.cycle_type_id %><br />
+  <strong>Status</strong> <%=trans_cycle_status @cycle.status %><br />
+</p>
+Você pode acompanhar este ciclo através do seu escritório virtual.
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>

@@ -1,0 +1,25 @@
+<h2>Meus ciclos</h2>
+
+<table cellspacing="0">
+  <tr>
+    <th>referência</th>
+    <th>nível</th>
+    <th>status</th>
+    <th>ver</th>
+  </tr>
+
+  <% for item in @cycles %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.cycle_type_id %></td>
+      <td><%= trans_cycle_status item.status %></td>
+      <td><%= link_to "acessar", [:office, item] %></td>
+    </tr>
+  <% end %>
+
+  <% if @cycles.empty? %>
+    <tr><td colspan=4>Nenhum no momento</td></tr>
+  <% end %>
+
+</table>
+<%= paginate @cycles %>

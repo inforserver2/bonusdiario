@@ -1,0 +1,24 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  subject: MyString
+  message: MyString
+  user_id: 1
+
+two:
+  subject: MyString
+  message: MyString
+  user_id: 1
+
+# == Schema Information
+#
+# Table name: supports
+#
+#  id         :integer(4)      not null, primary key
+#  subject    :string(255)
+#  message    :text
+#  user_id    :integer(4)
+#  created_at :datetime
+#  updated_at :datetime
+#
+

@@ -1,0 +1,56 @@
+<h1>Comissões</h1>
+
+<p>Seja bem vindo</p>
+
+<%= form_for [:office,@search], :url=>office_comms_path  do |f| %>
+  <%= f.label "referência" %>
+  <%= f.text_field :id_equals %>
+  <%= f.label "tipo" %>
+  <%= f.collection_select :comm_type_id_equals, CommType.all, :id, :name, :include_blank=>true %>
+  <%= f.label "status" %>
+  <%= f.select :status_equals, [["a enviar","0"],["em envio","1"], ["pago", "2"] ], :include_blank=>true %>
+  <%= button_submit_tag "filtrar", :name=>nil %>
+  <%= link_to("remover filtro", office_comms_path) if params[:search].present? && params[:search].any?  %>
+<% end %>
+
+<table cellspacing="0">
+  <tr>
+    <th>referência</th>  
+    <th>valor</th>
+    <th>tipo</th> 
+    <th>status</th>
+    <th>mais info</th>
+  </tr>
+
+  <% @comms.each do |comm| -%>
+    <tr>
+      <td><%= comm.id %></td> 
+      <td><%= comm.value.reais_contabeis %></td>
+      <td><%= comm.comm_type.name %></td>
+      <td><%= trans_comm_status comm.status %></td>
+      <td><%= link_to "ver", "#", :rel=>"#comm_#{comm.id}" %></td>
+    </tr>
+  <% end -%>
+
+  <% unless @comms.any? -%>
+    <tr><td colspan=5>Nenhuma referência registrada no momento</td></tr>
+  <% end -%>
+
+</table>
+
+<% @comms.each do |comm| -%>
+  <div class="simple_overlay sponsor" id="comm_<%= comm.id %>">
+    <h2>Detalhes da comissão</h2> 
+    <table cellspacing="0">
+      <tr><th>registrado em</th><td><%= comm.created_at.to_s_br %></td></tr>
+      <tr><th>referência</th><td><%= comm.id %></td></tr>
+      <tr><th>valor</th><td><%= comm.value.reais_contabeis %></td></tr>
+      <tr><th>tipo</th><td><%= comm.comm_type.name %></td></tr>
+      <tr><th>status</th><td><%= trans_comm_status comm.status %></td></tr>
+      <tr><th>origem</th><td><%= comm.bill.description %></td></tr>
+    </table>
+  </div>
+<% end -%>
+
+
+<%= paginate @comms %>

@@ -1,0 +1,52 @@
+mail:
+  power: true
+  address: localhost
+  port: 25
+  user_name: hribeiro@tipegoo.com
+  password: nx0010dr
+  authentication: plain
+  enable_starttls_auto: false
+
+payouts:
+  days: 1
+  value: 50
+
+company: Tipegoo Entretenimentos
+domain: "tipegoo.com"
+url: "www.tipegoo.com"
+prot: "http://www.tipegoo.com"
+env: development
+email-contact: contato@tipegoo.com
+email-support: suporte@tipegoo.com
+site-title: Bem-vindos à Tipegoo Entretenimentos
+billing_auto_increment: 300000001
+
+
+mail_intercept: false
+mail_intercept_receiver: messages@tipegoo.com
+
+fakepass: vtr512
+fakemail: hribeiro@tipegoo.com
+
+payments:
+    default: boleto
+    boleto:
+        expire_in_days: 7
+        real:
+            actived: true
+            agency: 0593
+            account: 0758363
+            code: 57
+            tax: 3.5
+    paypal:
+        actived: true
+        account: hribeiro@inforserver.com.br
+        currency: BRL
+        factor: 1
+        porcentage: 0.10
+    mb:
+        actived: false
+        ent_id: 10559
+        sub_ent_id: 850
+
+conference_url: http://www.gvolive.com/conference,28241145

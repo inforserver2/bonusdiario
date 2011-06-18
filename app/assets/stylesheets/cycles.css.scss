@@ -1,0 +1,337 @@
+.cycle {
+  position: relative;
+  background-image: url(/assets/cycle/stages.gif);
+  width: 517px;
+  height: 516px;
+}
+
+
+
+
+.pos0 {
+  width: 95px;
+  height: 125px;
+  position: relative;
+  left: 215px;
+  top: 207px;
+  overflow: hidden;
+  img{
+    width: 95px;
+    cursor: pointer;
+  }
+
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos1 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left: 215px;
+  top: 107px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos2 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left: 315px;
+  top: 290px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos3 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  right: 315px;
+  top: 290px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos4 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left: 105px;
+  top: 50px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos5 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left: 215px;
+  top: 10px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos6 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  right: 105px;
+  top: 50px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos7 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  right:5px;
+  top: 225px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos8 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  right:30px;
+  top: 325px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos9 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  right:95px;
+  top: 395px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos10 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left:95px;
+  top: 395px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos11 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left:30px;
+  top: 325px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+.pos12 {
+  width: 95px;
+  height: 85px;
+  position: absolute;
+  left:5px;
+  top: 225px;
+  text-align: center;
+  overflow: hidden;
+  img{
+    width: 55px;
+    cursor: pointer;
+  }
+  p{
+    margin:0px;
+    padding:0px;
+    font-size: 11px;
+    color: black;
+    white-space: nowrap;
+    text-align: center;
+    background-color: white;
+    color:white;
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+
+p.legend{
+  background-color: rgba(0,0,0,0.5);
+}

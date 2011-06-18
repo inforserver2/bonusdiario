@@ -1,0 +1,74 @@
+<div class="span-25">
+  <h2>Escritório virtual</h2>
+  <p>Seja bem vindo <%= current_user.nick %></p>
+  <p><b>Seu link para divulgação é <%= root_url(:subdomain=>current_user.name) %></b></p>
+</div>
+
+<% if current_user.status != 1 -%>
+<div class="span-25 error">
+  <p><b>Conta pendente </b><%= link_to "clique aqui para quitar!", office_bill_path(current_user.bills.first.token) %><br/>
+    Lembre-se que seu link para divulgação só sera ativado após sua quitação!
+  </p>
+</div>
+<% end -%>
+<hr/>
+<div class="span-25">
+  <h3>Monitor da rede</h3>
+  <p>Você pode navegar pelos níveis clicando nos links dos contadores</p>
+  <%= render :partial => "partials/monitor" %>
+</div>
+
+<div class="span-26">
+  <h3>Estatísticas</h3>
+  <div class="span-9 border">
+    <% cache("comm-stats-#{current_user.id}") do -%>
+    <table cellspacing="0">
+      <caption>Comissões</caption>
+      <tr><th>a enviar</th><td><%=current_user.comms.where(:status=>0).sum(:value).reais_contabeis  %></td></tr>
+      <tr><th>em envio</th><td><%=current_user.comms.where(:status=>1).sum(:value).reais_contabeis  %></td></tr>
+      <tr><th>pago</th><td><%=current_user.comms.where(:status=>2).sum(:value).reais_contabeis  %></td></tr>
+    </table>
+    <% end -%>
+  </div>
+  <div class="span-9 border">
+    <% cache("payout-stats-#{current_user.id}") do -%>
+    <table cellspacing="0">
+      <caption>Recebimentos</caption>
+      <tr><th>a enviar</th><td><%=current_user.payouts.where(:status=>0).sum(:value).reais_contabeis  %></td></tr>
+      <tr><th>enviado</th><td><%=current_user.payouts.where(:status=>1).sum(:value).reais_contabeis  %></td></tr>
+      <tr><th>pendente</th><td><%=current_user.payouts.where(:status=>2).sum(:value).reais_contabeis  %></td></tr>
+    </table>
+    <% end -%>
+  </div>
+  <div class="span-7 last">
+    <table cellspacing="0">
+      <caption>Visitas</caption>
+      <tr><th>Total</th><td><%=current_user.visit  %></td></tr>
+    </table>
+  
+  </div>
+</div>
+
+<hr/>
+<div class="span-26">
+  <h3>Meus dados</h3>
+  <%= render :partial => "partials/user_show" %>
+</div>
+
+<hr/>
+<div class="span-26">
+  <h3>Benefícios</h3>
+  <ul class="product_list">
+    <li><%= link_to image_tag("ebooks/premio1.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio2.jpg", :size=>"100x122"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio3.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio4.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio5.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio6.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio7.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio8.jpg", :size=>"100x122"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio9.jpg"), office_products_path %></li>
+    <li><%= link_to image_tag("ebooks/premio10.jpg", :size=>"100x122"), office_products_path %></li>
+  </ul>  
+</div>
+

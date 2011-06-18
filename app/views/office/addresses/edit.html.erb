@@ -1,0 +1,49 @@
+<%= link_to "voltar", office_user_path(current_user) %>
+<h2>Edição do endereço</h2>
+<%= form_for [:office,@address] do |f| %>
+  
+  <%= render :partial=>"partials/errors", :locals=>{:obj=>@address} %>
+  
+  <div class=field>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class=field>
+    <%= f.label :number %><br/>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class=field>
+    <%= f.label :extra %><br/>
+    <%= f.text_field :extra %>
+  </div>
+
+  <div class=field>
+    <%= f.label :neighborhood %><br/>
+    <%= f.text_field :neighborhood %>
+  </div>
+
+  <div class=field>
+    <%= f.label :zip %><br/>
+    <%= f.text_field :zip %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :country %><br/>
+    <%= f.collection_select(:country_id, Country.all, :id, :name) %>
+  </div>
+
+  <div class=field>
+    <%= f.label :state_name %><br/>
+    <%= f.text_field :state_name %>
+  </div>
+
+  <div class=field>
+    <%= f.label :city_name %><br/>
+    <%= f.text_field :city_name %>
+  </div>
+  
+  <%= button_submit_tag "Atualizar" %>
+
+<% end %>

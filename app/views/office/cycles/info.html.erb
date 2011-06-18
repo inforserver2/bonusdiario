@@ -1,0 +1,21 @@
+<h2>Ciclo #<%= @cycle.id %> Nível <%= @cycle.cycle_type_id %></h2>
+<% cache("UserInfo-#{@cycle.contract.user_id}",:expires_in=>6.hour) do  %>
+<%= image_tag @cycle.contract.user.avatar_url(:thumb) %>
+  <table cellspacing="0">
+    <caption><%= @cycle.contract.user.nick %></caption>
+    <tr><th>Site</th><td><%= root_url(:subdomain=>@cycle.contract.user.name) %></td></tr>
+    <tr><th>Status</th><td><%= trans_user_status @cycle.contract.user.status %></td></tr>
+    <tr><th>Qtd indicados</th><td><%= @cycle.contract.user.sponsored.size %></td></tr>
+    <tr><th>Email principal</th><td><%= @cycle.contract.user.email1 %></td></tr>
+    <tr><th>Email alternativo</th><td><%= @cycle.contract.user.email2 %></td></tr>
+    <tr><th>Telefone</th><td><%= @cycle.contract.user.phone %></td></tr>
+    <tr><th>Celular</th><td><%= @cycle.contract.user.mobile  %></td></tr>
+    <tr><th>Msn</th><td><%= @cycle.contract.user.msn %></td></tr>
+    <tr><th>Skype</th><td><%=  @cycle.contract.user.skype %></td></tr>
+    <tr><th>Gtalk</th><td><%= @cycle.contract.user.gtalk %></td></tr>
+    <tr><th>Cidade</th><td><%= @cycle.contract.user.address.city_name %></td></tr>
+    <tr><th>Estado</th><td><%= @cycle.contract.user.address.state_name %></td></tr>
+    <tr><th>País</th><td><%= @cycle.contract.user.address.country.name %></td></tr>
+    <tr><th>Indicador</th><td><%= @cycle.contract.user.sponsor.nick %> <%= root_url(:subdomain=>@cycle.contract.user.sponsor.name) %></td></tr>
+  </table>
+<% end %>

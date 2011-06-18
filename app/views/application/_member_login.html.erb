@@ -1,0 +1,23 @@
+<% unless user_signed_in? -%>
+
+<%= form_for @session, :url=>sign_in_path do |f| %>
+  <%= render :partial => "partials/errors", :locals => { :obj => @session } %>
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br/>
+    <%= f.password_field :password %>
+  </div>
+
+  <%= button_submit_tag "Logar" %>
+  <%= link_to "esqueci minha senha", password_path %>
+<% end -%>
+
+<% else -%>
+  <div>
+    <span>Login: <%= current_user.name %></span>
+    <%= render :partial => "partials/menu" %>
+  </div>
+<% end -%>

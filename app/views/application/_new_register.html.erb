@@ -1,0 +1,33 @@
+<%= form_for(@user, :url=>sign_up_path) do |f| %>
+ 
+  <%= render :partial => "partials/errors", :locals => { :obj => @user } %>
+
+  <div class="field">
+    <%= f.label :nick, :class=>:needed %><br />
+    <%= f.text_field :nick %>
+  </div>
+  <div class="field">
+    <%= f.label :email1 , :class=>:needed %><br />
+    <%= f.text_field :email1 %>
+  </div>
+  <div class="field">
+    <%= f.label :email2 %><br />
+    <%= f.text_field :email2 %>
+  </div>
+  <div class="field">
+    <%= f.label :password, :class=>:needed  %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, :class=>:needed  %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :name, :class=>:needed  %><br />
+    <%= f.text_field :name, :class=>"mask-alpha" %>
+    <div id="name-validation"></div>
+  </div>
+  <div class="actions">
+    <%= button_submit_tag "Cadastrar" %>
+  </div>
+<% end %>

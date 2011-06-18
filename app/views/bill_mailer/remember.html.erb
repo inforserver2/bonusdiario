@@ -1,0 +1,33 @@
+<p>
+  Caro<strong> <%= @bill.contract.user.nick %> </strong>, esse é um lembrete de conta pendente:
+</p>
+
+<table cellspacing="0">
+
+   <tr>
+     <th>Descrição:</th>
+    <td><%= @bill.description %> </td>
+  </tr>
+
+  <tr>
+     <th>Status:</th>
+    <td><%= bill_visible_interprets @bill.status %> </td>
+  </tr>
+
+
+  <tr>
+     <th>Valor:</th>
+    <td><%= @bill.value.reais_contabeis %> </td>
+  </tr>
+
+
+</table>
+
+<%=link_to "Clique aqui para acessar a via de pagamento.", office_bill_url(:token=>@bill.token,:subdomain=>@bill.contract.user) %>
+Após recebermos seu pagamento seu contrato será ativado e você terá acesso integral aos recursos oferecidos.
+</p>
+
+  <p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+  </p>
+

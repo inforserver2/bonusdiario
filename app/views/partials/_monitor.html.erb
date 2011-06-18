@@ -1,0 +1,74 @@
+<% cache("monit-stats-#{current_user.id}", :expires_in=>1.hour) do %>
+<table cellspacing="0">
+  <tr>
+    <th></th>
+    <th>pendentes</th>
+    <th>ativos</th>
+    <th>total</th>
+  </tr>
+  <tr>
+    <th>Nível 1</th>
+    <td><%= link_to_if @level1.where(:status=>0).count > 0, @level1.where(:status=>0).count, office_matrix_level_path(:level=>1, :search=>{:status_equals=>0})  %></td>
+    <td><%= link_to_if @level1.where(:status=>1).count > 0, @level1.where(:status=>1).count, office_matrix_level_path(:level=>1, :search=>{:status_equals=>1})  %></td>
+    <td><%= link_to_if @level1.count > 0, @level1.count, office_matrix_level_path(:level=>1)  %></td>
+  </tr>
+  <tr>
+    <th>Nível 2</th>
+    <td><%= link_to_if @level2.where(:status=>0).count > 0, @level2.where(:status=>0).count, office_matrix_level_path(:level=>2, :search=>{:status_equals=>0})  %></td>
+    <td><%= link_to_if @level2.where(:status=>1).count > 0, @level2.where(:status=>1).count, office_matrix_level_path(:level=>2, :search=>{:status_equals=>1})  %></td>
+    <td><%= link_to_if @level2.count > 0, @level2.count, office_matrix_level_path(:level=>2)  %></td>
+  </tr>
+  <tr>
+    <th>Nível 3</th>
+    <td><%= link_to_if @level3.where(:status=>0).count > 0, @level3.where(:status=>0).count, office_matrix_level_path(:level=>3, :search=>{:status_equals=>0})  %></td>
+    <td><%= link_to_if @level3.where(:status=>1).count > 0, @level3.where(:status=>1).count, office_matrix_level_path(:level=>3, :search=>{:status_equals=>1})  %></td>
+    <td><%= link_to_if @level3.count > 0, @level3.count, office_matrix_level_path(:level=>3)  %></td>
+  </tr>
+  <tr>
+    <th>Nível 4</th>
+    <td><%= link_to_if @level4.where(:status=>0).count > 0, @level4.where(:status=>0).count, office_matrix_level_path(:level=>4, :search=>{:status_equals=>0})  %></td>
+    <td><%= link_to_if @level4.where(:status=>1).count > 0, @level4.where(:status=>1).count, office_matrix_level_path(:level=>4, :search=>{:status_equals=>1})  %></td>
+    <td><%= link_to_if @level4.count > 0, @level4.count, office_matrix_level_path(:level=>4)  %></td>
+  </tr>
+  <tr>
+    <th>Nível 5</th>
+    <td><%= link_to_if @level5.where(:status=>0).count > 0, @level5.where(:status=>0).count, office_matrix_level_path(:level=>5, :search=>{:status_equals=>0})  %></td>
+    <td><%= link_to_if @level5.where(:status=>1).count > 0, @level5.where(:status=>1).count, office_matrix_level_path(:level=>5, :search=>{:status_equals=>1})  %></td>
+    <td><%= link_to_if @level5.count > 0, @level5.count, office_matrix_level_path(:level=>5)  %></td>
+  </tr>
+  <tr>
+    <th>Todos</th>
+    <td><%= @level1.where(:status=>0).count+@level2.where(:status=>0).count+@level3.where(:status=>0).count+@level4.where(:status=>0).count+@level5.where(:status=>0).count      %></td>
+    <td><%= @level1.where(:status=>1).count+@level2.where(:status=>1).count+@level3.where(:status=>1).count+@level4.where(:status=>1).count+@level5.where(:status=>1).count      %></td>
+    <td><%= @level1.count+@level2.count+@level3.count+@level4.count+@level5.count %></td>
+  </tr>
+</table>
+
+  <h3>Meu ciclo inicial</h3>
+  
+  <table cellspacing="0">
+    <tr>
+      <th>referência</th>
+      <th>nível</th>
+      <th>status</th>
+      <th>ver</th>
+    </tr>
+  
+    <% if @cycles.last %>
+      <tr>
+        <td><%= @cycles.last.id %></td>
+        <td><%= @cycles.last.cycle_type_id %></td>
+        <td><%= trans_cycle_status @cycles.last.status %></td>
+        <td><%= link_to "acessar", [:office, @cycles.last] %></td>
+      </tr>
+    <% end %>
+    <% if @cycles.size > 1 %>
+      <tr><td colspan=4><%= link_to "veja outros", office_cycles_path %></td></tr>
+    <% end %>
+  
+    <% if @cycles.empty? %>
+      <tr><td colspan=4>Nenhum no momento</td></tr>
+    <% end %>
+  
+  </table>
+<% end %>

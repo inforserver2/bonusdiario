@@ -1,0 +1,17 @@
+<ul>
+  <li><%= link_to "Resumo geral", office_welcome_path %></li>
+  <li><%= link_to "Apostilas", office_products_path %></li>
+  <li><%= link_to "Meus banners", office_banners_path %></li>
+  <li><%= link_to("Meus dados", office_user_path(current_user)) if user_signed_in? %></li>
+  <li><%= link_to "Monitor da rede", office_matrix_monitor_path %></li>
+  <li><%= link_to "Meu patrocinador", office_matrix_upline_path %></li>
+  <li><%= link_to "Meus indicados", office_matrix_level_path(:level=>1) %></li>
+  <li><%= link_to "Meus ciclos", office_cycles_path %></li>
+  <% if current_user.bills.first.status!=1 %>
+    <li><%= link_to "Cobrança", office_bill_path(current_user.bills.first.token) %></li>
+  <% end %>
+  <li><%= link_to "Minhas comissões", office_comms_path %></li>
+  <li><%= link_to "Meus recebimentos", office_payouts_path %></li>
+  <li><%= link_to "Suporte", new_office_support_path %></li>
+  <li><%= link_to "Sair", sign_out_path %></li>
+</ul>

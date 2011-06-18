@@ -1,0 +1,52 @@
+<h2>Teste de usuários</h2>
+<%= form_for [:admin,@user], :url=>admin_setups_path, :method=>:post do |f| %>
+
+  <%= render :partial => "partials/errors", :locals=>{:obj=>@user} %>
+  
+  <div class=field>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class=field>
+    <%= f.label :qty %><br/>
+    <%= f.select :qty, (1..1000).to_a %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :sponsor %><br/>
+    <%= f.text_field :sponsor_id %>
+  </div>
+
+  <div class=field>
+    <%= f.label :plan %><br/>
+    <%= f.collection_select :plan, Service.all, :id, :name, :prompt=>true %>
+  </div>
+
+  <div class=field>
+    <%= f.label :close %><br/>
+    <%= f.check_box :close %>
+  </div>
+
+  <div class=field>
+    <%= f.label :money %><br/>
+    <%= f.check_box :money %>
+  </div>
+
+  <div class=field>
+    <%= f.label :comm %><br/>
+    <%= f.check_box :comm %>
+  </div>
+
+  <div class=field>
+    <%= f.label :mail %><br/>
+    <%= f.check_box :mail %>
+  </div>
+
+  <div class=actions>
+    <%= f.submit %>
+  
+  </div>
+
+
+<% end %>

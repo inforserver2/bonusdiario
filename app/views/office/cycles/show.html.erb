@@ -1,0 +1,109 @@
+<%= link_to "Voltar", office_cycles_path %>
+
+<%  cache("cycle/#{params[:id]}/user/#{current_user.id}", :expires_in=>1.hour) do -%>
+  <h2>Meu ciclo #<%= @cycle.id %> - Nível <%= @cycle.cycle_type_id %></h2>
+  <div class="cycle">
+  
+    
+    <div class="pos0">
+      <%= image_tag "/assets/cycle/#{@cycle.contract.user.gender_id}level0.png",:rel=>"#show_#{@cycle.id}" %>
+      <p><%= @cycle.contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle} %>
+      
+    </div>
+  
+    <% if @cycle.sponsored[0].present? %>
+    <div class="pos1">
+      <%= image_tag "/assets/cycle/#{@cycle.sponsored[0].contract.user.gender_id}level1.png",:rel=>"#show_#{@cycle.sponsored[0].id}" %>
+      <p><%= @cycle.sponsored[0].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[0]} %>
+    </div>
+    <% if @cycle.sponsored[0].sponsored[0].present? %>
+      <div class="pos4">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[0].sponsored[0].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[0].sponsored[0].id}" %>
+        <p><%= @cycle.sponsored[0].sponsored[0].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[0].sponsored[0]} %>
+      </div>
+    <% end %>
+    
+    <% if @cycle.sponsored[0].sponsored[1].present? %>
+      <div class="pos5">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[0].sponsored[1].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[0].sponsored[1].id}" %>
+        <p><%= @cycle.sponsored[0].sponsored[1].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[0].sponsored[1]} %>
+      </div>
+    <% end %>
+    
+    <% if @cycle.sponsored[0].sponsored[2].present? %>
+      <div class="pos6">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[0].sponsored[2].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[0].sponsored[2].id}" %>
+        <p><%= @cycle.sponsored[0].sponsored[2].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[0].sponsored[2]} %>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <% if @cycle.sponsored[1].present? %>
+    <div class="pos2">
+      <%= image_tag "/assets/cycle/#{@cycle.sponsored[1].contract.user.gender_id}level1.png",:rel=>"#show_#{@cycle.sponsored[1].id}" %>
+      <p><%= @cycle.sponsored[1].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[1]} %>
+    </div>
+    <% if @cycle.sponsored[1].sponsored[0].present? %>
+      <div class="pos7">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[1].sponsored[0].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[1].sponsored[0].id}" %>
+        <p><%= @cycle.sponsored[1].sponsored[0].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[1].sponsored[0]} %>
+      </div>
+    <% end %>
+    
+    <% if @cycle.sponsored[1].sponsored[1].present? %>
+      <div class="pos8">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[1].sponsored[1].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[1].sponsored[1].id}" %>
+        <p><%= @cycle.sponsored[1].sponsored[1].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[1].sponsored[1]} %>
+      </div>
+    <% end %>
+    
+    <% if @cycle.sponsored[1].sponsored[2].present? %>
+      <div class="pos9">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[1].sponsored[2].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[1].sponsored[2].id}" %>
+        <p><%= @cycle.sponsored[1].sponsored[2].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[1].sponsored[2]} %>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <% if @cycle.sponsored[2].present? %>
+    <div class="pos3">
+      <%= image_tag "/assets/cycle/#{@cycle.sponsored[2].contract.user.gender_id}level1.png",:rel=>"#show_#{@cycle.sponsored[2].id}" %>
+      <p><%= @cycle.sponsored[2].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[2]} %>
+    </div>
+    <% if @cycle.sponsored[2].sponsored[0].present? %>
+      <div class="pos10">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[2].sponsored[0].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[2].sponsored[0].id}" %>
+        <p><%= @cycle.sponsored[2].sponsored[0].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[2].sponsored[0]} %>
+      </div>
+    <% end %>
+    
+    <% if @cycle.sponsored[2].sponsored[1].present? %>
+      <div class="pos11">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[2].sponsored[1].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[2].sponsored[1].id}" %>
+        <p><%= @cycle.sponsored[2].sponsored[1].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[2].sponsored[1]} %>
+      </div>
+    <% end %>
+    
+    <% if @cycle.sponsored[2].sponsored[2].present? %>
+      <div class="pos12">
+        <%= image_tag "/assets/cycle/#{@cycle.sponsored[2].sponsored[2].contract.user.gender_id}level2.png",:rel=>"#show_#{@cycle.sponsored[2].sponsored[2].id}" %>
+        <p><%= @cycle.sponsored[2].sponsored[2].contract.user.name %></p>
+        <%= render :partial => 'display_user', :locals=>{:cycle=>@cycle.sponsored[2].sponsored[2]} %>
+      </div>
+    <% end %>
+  <% end %>
+  
+  </div>
+<% end -%>

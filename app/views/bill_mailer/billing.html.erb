@@ -1,0 +1,16 @@
+<p>
+  <strong><%= @bill.contract.user.nick %></strong>, segue uma cópia da fatura lançada em sua conta para seu controle de pagamento.
+</p>
+<p>
+
+  <strong>Fatura </strong><%=@bill.id %><br />
+  <strong>Valor</strong><%=@bill.value.reais_contabeis %><br />
+  <strong>Descrição</strong> <%= @bill.description %><br />
+  <strong>Status</strong><%= bill_visible_interprets @bill.status %><br />
+  <%=link_to "Clique aqui para acessar a via de pagamento.", office_bill_url(:token=>@bill.token,:subdomain=>@bill.contract.user.name) %>
+</p>
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>
+

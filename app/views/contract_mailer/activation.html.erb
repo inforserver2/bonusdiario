@@ -1,0 +1,13 @@
+<p><strong><%= @contract.user.nick %></strong>, seu contrato foi ativado com sucesso.</p>
+<p>
+  <strong>Contrato</strong> N# <%=@contract.id %><br />
+  <strong>Serviço</strong> <%=@contract.service.name %><br />
+  <strong>Status</strong> <%=contract_visible_interprets @contract.status %><br />
+</p>
+A partir de agora você está habilitado para usufruir de todos os privilégios que este plano tem a oferecer.
+
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>
+

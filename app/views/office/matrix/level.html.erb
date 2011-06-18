@@ -1,0 +1,86 @@
+<div class="span-16">
+
+<%= link_to "Voltar para o monitor", office_matrix_monitor_path %>
+    <h2>Rede de Negócios Nível <%= params[:level] %> </h2> 
+  </div>
+  <div class="span-10 last">
+    NAVEGAR PELO NÍVEL
+    <%= link_to_if params[:level]!="1", "1", office_matrix_level_path(:level=>1) %>
+    <%= link_to_if params[:level]!="2", "2", office_matrix_level_path(:level=>2) %>
+    <%= link_to_if params[:level]!="3", "3", office_matrix_level_path(:level=>3) %>
+    <%= link_to_if params[:level]!="4", "4", office_matrix_level_path(:level=>4) %>
+    <%= link_to_if params[:level]!="5", "5", office_matrix_level_path(:level=>5) %>
+  </div>
+  <div class="span-26">
+
+<%= form_for @search, :url=>office_matrix_level_path do |f| %>
+  <%= f.label "Login" %>
+  <%= f.text_field :name_equals %>
+  <%= f.select :status_equals, [["ativo","1"],["pendente","0"]], :include_blank=>true %>
+  <%= button_submit_tag "Filtrar", :name=>nil %>
+  <%= link_to("remover filtro", office_matrix_level_path) if params[:search].present? && params[:search].any? %>
+<% end %>
+<hr/>
+
+<table cellspacing="0">
+<%= raw "<caption>Resultado filtrado</caption>" if params[:search].present? %>
+  <tr>
+    <th>foto</th>
+    <th>site</th>
+    <th>apelido</th>
+    <th>qtd de indicados</th>
+    <th>indicador</th>
+    <th>status</th>
+    <th>contato</th>
+  </tr>
+
+  <% @users.each do |user| -%>
+    <tr>
+      <td><%=image_tag user.avatar_url(:mini) %></td>
+      <td><%=user.name  %></td>
+      <td><%=user.nick  %></td>
+      <% if (1..4).include? params[:level].to_i -%>
+        <td><%=link_to_if user.sponsored.size>0,  user.sponsored.size, office_matrix_level_path(:level=>params[:level].to_i+1, :search=>{:sponsor_id_equals=>user.id})  %></td>
+      <% else -%>
+        <td><%=user.sponsored.size  %></td>
+      <% end -%>
+      <td><%=user.sponsor.nick  %></td>
+      <td><%=trans_user_status user.status  %></td>
+      <td><%=link_to "ver", "#", :rel=>"#show_#{user.id}" %></td>
+    </tr>
+
+
+  <% end-%>
+  <% unless @users.any? -%>
+    <tr>
+      <td colspan=7>Nenhum indicado no momento.</td>
+    </tr>
+  <% end -%>
+</table>
+
+<% @users.each do |user| -%>
+  <div class="simple_overlay sponsor" id="show_<%= user.id %>">
+      <h2>Indicado Nível <%= params[:level] %></h2>
+      <%= image_tag user.avatar_url(:thumb) %>
+      <table cellspacing="0">
+        <caption><%= user.nick %></caption>
+        <tr><th>Site</th><td><%= root_url(:subdomain=>user.name) %></td></tr>
+        <tr><th>Status</th><td><%= trans_user_status user.status %></td></tr>
+        <tr><th>Qtd indicados</th><td><%= user.sponsored.size %></td></tr>
+        <tr><th>Email principal</th><td><%= user.email1 %></td></tr>
+        <tr><th>Email alternativo</th><td><%= user.email2 %></td></tr>
+        <tr><th>Telefone</th><td><%= user.phone %></td></tr>
+        <tr><th>Celular</th><td><%= user.mobile  %></td></tr>
+        <tr><th>Msn</th><td><%= user.msn %></td></tr>
+        <tr><th>Skype</th><td><%=  user.skype %></td></tr>
+        <tr><th>Gtalk</th><td><%= user.gtalk %></td></tr>
+        <tr><th>Cidade</th><td><%= user.address.city_name %></td></tr>
+        <tr><th>Estado</th><td><%= user.address.state_name %></td></tr>
+        <tr><th>País</th><td><%= user.address.country.name %></td></tr>
+        <tr><th>Indicador</th><td><%= user.sponsor.nick %> <%= root_url(:subdomain=>user.sponsor.name) %></td></tr>
+      </table>
+    </div>
+<% end -%>
+
+<%= paginate @users %>
+</div>

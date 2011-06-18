@@ -1,0 +1,13 @@
+<p>
+  <strong><%= @cycle.contract.user.nick %></strong>, um ciclo foi concluído em sua conta.</p>
+<p>Segue referência:</p>
+<p>
+  <strong>Ciclo</strong> <%=@cycle.id %><br />
+  <strong>Nível</strong> <%=@cycle.cycle_type_id %><br />
+  <strong>Status</strong> <%=trans_cycle_status @cycle.status %><br />
+</p>
+Você pode obter mais detalhes através do seu escritório virtual.
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>

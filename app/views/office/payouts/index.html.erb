@@ -1,0 +1,55 @@
+<h2>Recebimento</h2>
+<p>Dados sobre recebimento de comissões</p>
+
+<%= form_for [:office,@search] do |f| %>
+  <%= f.label "Referência" %>
+  <%= f.text_field :id_equals %>
+  <%= f.label "Status" %>
+  <%= f.select :status_equals, [["a enviar", "0"], ["enviado","1"], ["pendente","0"]], :include_blank=>true %>
+  <%= button_submit_tag "filtrar" %>
+  <%= link_to("Remover filtro", office_payouts_path) if params[:search].present? && params[:search].any? %>
+<% end %>
+
+<table cellspacing="0">
+  <tr>
+    <th>referência</th>
+    <th>valor</th>
+    <th>status</th>
+    <th>mais info</th>
+  </tr>
+
+  <% @payouts.each do |payout| -%>
+    <tr>
+      <td><%= payout.id %></td>
+      <td><%= payout.value.reais_contabeis %></td>
+      <td><%= trans_payout_status payout.status %></td>
+      <td><%= link_to "ver", "#", :rel=>"#payout_#{payout.id}" %></td>
+    </tr>
+  <% end -%>
+
+  <% if @payouts.empty? -%>
+    <tr><td colspan=4>Nenhum recebimento foi registrado até o momento</td></tr>
+  <% end -%>
+
+</table>
+<% @payouts.each do |payout| -%>
+  <div class="simple_overlay sponsor" id="payout_<%= payout.id %>">
+    <h2>Detalhes do recebimento</h2>
+    <table cellspacing="0">
+      <tr><th>registrado em</th><td><%= payout.created_at.to_s_br %></td></tr>
+      <tr><th>referência</th><td><%= payout.id %></td></tr>
+      <tr><th>valor</th><td><%= payout.value.reais_contabeis %></td></tr>
+      <tr><th>status</th><td><%=trans_payout_status payout.status %></td></tr>
+      <tr><th colspan=2>Referência das comissões que compõe esta ordem</th></tr>
+      <tr><td colspan=2>
+          <% payout.comms.each do |comm|  -%> 
+            <%= link_to comm.id, office_comms_path(:search=>{:id_equals=>comm.id}) %>
+          <% end -%>
+      </td></tr>
+    </table>
+  </div>
+<% end -%>
+<%= paginate @payouts %>
+
+
+

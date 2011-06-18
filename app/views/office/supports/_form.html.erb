@@ -1,0 +1,16 @@
+<%= form_for [:office,@support] do |f| %>
+ <%= render :partial => "partials/errors", :locals => { :obj => @support } %> 
+
+  <div class="field">
+    <%= f.label :subject , :class=>:needed %><br/>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :message , :class=>:needed %><br/>
+    <%= f.text_area :message %>
+  </div>
+  <div class="actions">
+    <%= button_submit_tag "Enviar" %>
+  </div>
+<% end %>
+

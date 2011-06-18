@@ -1,0 +1,15 @@
+<p>
+  <strong><%= @user.nick %></strong>, seu cadastro foi concluído com sucesso.   </p>
+
+<p>Segue suas credenciais para login:</p>
+
+<p>
+  <strong>Apelido </strong><%=@user.nick %><br />
+  <strong>Login </strong> <%=@user.name %><br />
+  <strong>Senha </strong> <%=@user.password %><br />
+  <strong>Site de divulgação </strong> <%=link_to root_url(:subdomain=>@user.name), root_url(:subdomain=>@user.name) %><br />
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>
+

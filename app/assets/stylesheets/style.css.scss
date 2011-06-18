@@ -1,0 +1,184 @@
+body{
+        background: url(bg.jpg) center top;
+}
+
+.container{
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #fff;
+} 
+
+.top {
+        text-align:center;
+}
+
+.menu_hor {
+  background-color: #F1F1F1; 
+  border-bottom: 1px solid #E0E0E0;
+  height: 50px;
+  ul {
+    list-style: none outside none;
+    li{
+      float:left;
+      font-size:14px;
+      padding:17px 16px 10px 68px;  
+      a {
+        color:#494949;
+        font-weight:bold;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.needed:after {
+  content: "*";
+  color: red;
+}
+
+.member_list{
+  li{
+    list-style: none;
+    div{
+      float: left;
+      width: 125px;
+      text-align: center;
+      p{
+
+        font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+        text-align:center;
+        font-size: 11px;
+        color:#808080;
+      }
+    }
+  }
+}
+
+.product_list{
+
+  li{
+    list-style: none;
+    float:left;
+    margin-right: 25px;
+    }
+}
+
+.product_list_home{
+  li{
+    list-style: none;
+    float:left;
+    margin-right: 20px;
+    }
+}
+
+.flash{
+  margin-top: 10px; 
+}
+
+.web{
+  border-top: 1px solid #E0E0E0;
+  background: url(content_bg.gif);
+  background-repeat:repeat-x;
+  h2{
+    line-height: 110%;
+  }
+
+}
+
+.bottom{
+    margin-top: 20px;
+  p{
+    margin:3px;
+    padding:0px;
+  }
+background-color:#F1F1F1;
+height: 100px;
+}
+
+#join_r{
+  background:url("join_bg.jpg") no-repeat scroll 0 0 transparent;
+  height:240px;
+  margin-bottom: 10px;
+  .first{
+    padding: 10px;
+
+    h3{
+      margin:0;
+      padding:0;
+      color:#006EA7;
+      font-size:28px;
+      font-weight:normal;
+      padding:35px 0 0 75px;  
+    } 
+    small{
+
+      color:#777777;
+      display:block;
+      font-size:20px;
+      padding-left:120px;  
+    }
+    big{
+
+      color:#000000;
+      display:block;
+      font-size:28px;
+      padding-left:60px;  
+    } 
+    p{
+      color:#000000;
+      font-size:16px;
+      padding-left:50px;  
+      span{
+        color:#00A2FF;
+        font-weight:bold; 
+      }
+    }
+  }
+
+
+  .second{
+    h3{
+      margin:0;
+      padding:0;
+      color:#006EA7;
+      font-size:18px;
+      font-weight:bold;
+    } 
+    img{
+      float:right;
+    }
+    big{
+      color:#000000;
+      display:block;
+      line-height: 120%;
+      font-size:18px;
+      font-weight: bold;
+    } 
+    small{
+      color:#000000;
+      font-size:11px;
+    } 
+    float:right;
+    margin-right: 0px;
+    padding: 10px;
+    text-align: left;
+    height: 230px;
+
+  }
+
+}
+
+.members, .registers{
+  background-color: #FFF6BF; 
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+#header_r .menu_r {
+background:none repeat scroll 0 0 #F1F1F1;
+border-bottom:1px solid #E0E0E0;
+font-family:Tahoma,Arial,sans-serif;
+height:49px;
+}

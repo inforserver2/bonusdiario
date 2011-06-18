@@ -1,0 +1,13 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/
+public/uploads/**/*
+.sw*
+.*.sw*
+.tmp_*
+WS_FTP.LOG
+Thumbs.db
+config/sys.yml
+config/database.yml

@@ -1,0 +1,71 @@
+<% cache ([current_user, current_user.address, current_user.bank_account]) do %>
+  
+  <div class="span-15 border">
+  <table cellspacing="0">
+    <caption>Dados do usuário <%= link_to '[Editar]', edit_office_user_path(current_user) %></caption>
+    <tr><th>Nome completo</th><td><%=current_user.fullname  %></td></tr>
+    <tr><th>Apelido</th><td><%=current_user.nick  %></td></tr>
+    <tr><th>Login</th><td><%=current_user.name  %></td></tr>
+    <tr><th>Site de divulgação</th><td><%=root_url  %></td></tr>
+    <tr><th>Email principal</th><td><%=current_user.email1  %></td></tr>
+    <tr><th>Email alternativo</th><td><%=current_user.email2  %></td></tr>
+    <tr><th>Telefone</th><td><%=current_user.phone  %></td></tr>
+    <tr><th>Celular</th><td><%=current_user.mobile  %></td></tr>
+    <tr><th>Msn</th><td><%=current_user.msn  %></td></tr>
+    <tr><th>Skype</th><td><%=current_user.skype  %></td></tr>
+    <tr><th>Gtalk</th><td><%=current_user.gtalk %></td></tr>
+    <tr><th>CPF</th><td><%=current_user.cpf  %></td></tr>
+    <tr><th>RG</th><td><%=current_user.rg  %></td></tr>
+    <tr><th>Genero</th><td><%=current_user.gender.try(:name)  %></td></tr>
+    <tr><th>Data de nascimento</th><td><%=current_user.birth.to_s_br  %></td></tr>
+    <tr><th>Foto</th><td>
+      <%= image_tag(current_user.avatar_url(:thumb),:rel=>"#show_my_avatar") %>   <br/>
+      <%= link_to '[Alterar]', edit_office_user_path(current_user) %>            
+      </td></tr>
+  </table>
+</div>
+<div class="span-10 last">
+  <div class="span-10 last">
+    <table cellspacing="0">
+      <caption>Senha <%= link_to '[Alterar]', office_password_change_path %></caption>
+      <td>Clique no link acima se quiser alterar a senha.</td> 
+
+    </table>
+  </div>
+  <hr/>
+
+  <div class="span-10 last">
+    <table cellspacing="0">
+      <caption>Endereço <%= link_to '[Alterar]', edit_office_address_path(current_user.address) %></caption>
+      <tr><th>Rua</th><td><%=current_user.address.name %></td></tr>
+      <tr><th>Número</th><td><%=current_user.address.number %></td></tr>
+      <tr><th>Complemento</th><td><%=current_user.address.extra %></td></tr>
+      <tr><th>Bairro</th><td><%=current_user.address.neighborhood %></td></tr>
+      <tr><th>Cidade</th><td><%=current_user.address.city_name %></td></tr>
+      <tr><th>Estado</th><td><%=current_user.address.state_name %></td></tr>
+      <tr><th>País</th><td><%=current_user.address.country.name %></td></tr>
+      <tr><th>CEP</th><td><%=current_user.address.zip %></td></tr>
+    </table>
+  </div>
+  <hr/> 
+  <div class="span-10 last">
+    <table cellspacing="0">
+      <caption>Conta bancária <%= link_to '[Alterar]', edit_office_bank_account_path(current_user.bank_account) %></caption>
+      <tr><th>Banco</th><td><%=current_user.bank_account.try(:bank).try(:name) %></td></tr>
+      <tr><th>Tipo de conta</th><td><%=current_user.bank_account.try(:bank_account_type).try(:name) %></td></tr>
+      <tr><th>Agência</th><td><%=current_user.bank_account.agency %></td></tr>
+      <tr><th>Conta</th><td><%=current_user.bank_account.account %></td></tr>
+      <tr><th>CPF do titular</th><td><%=current_user.bank_account.cpf_owner %></td></tr>
+      <tr><th colspan=2>Nome completo do titular</th></tr>
+      <tr><td colspan=2><%=current_user.bank_account.fullname_owner %></td></tr>
+      <tr><th colspan=2>Informações extras</th></tr>
+      <tr><td colspan=2><%=current_user.bank_account.extra %></td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="simple_overlay" id="show_my_avatar">
+  <%= image_tag current_user.avatar_url(:normal) %>
+</div>
+
+<% end %>

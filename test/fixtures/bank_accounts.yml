@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user: 
+  bank: 
+  bank_account_type: 
+  agency: MyString
+  account: MyString
+  cpf_owner: MyString
+  fullname_owner: MyString
+  extra: MyString
+
+two:
+  user: 
+  bank: 
+  bank_account_type: 
+  agency: MyString
+  account: MyString
+  cpf_owner: MyString
+  fullname_owner: MyString
+  extra: MyString

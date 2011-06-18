@@ -1,0 +1,96 @@
+<%= link_to "voltar", office_user_path(current_user) %>
+<h2>Edição do usuário</h2>
+<%= form_for [:office,@user] do |f| %>
+  <%= render :partial=>"partials/errors", :locals=>{:obj=>@user} %>
+  <div class=field>
+    <%= f.label :fullname %><br/>
+    <%= f.text_field :fullname %>
+  </div>
+
+  <div class=field>
+    <%= f.label :nick %><br/>
+    <%= f.text_field :nick %>
+  </div>
+
+  <div class=field>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name, :disabled=>true %>
+  </div>
+
+  <div class=field>
+    <%= f.label :email1 %><br/>
+    <%= f.text_field :email1, :disabled=>true %>
+  </div>
+
+
+  <div class=field>
+    <%= f.label :email2 %><br/>
+    <%= f.text_field :email2 %>
+  </div>
+
+  <div class=field>
+    <%= f.label :phone %><br/>
+    <%= f.text_field :phone %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :mobile %><br/>
+    <%= f.text_field :mobile %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :skype %><br/>
+    <%= f.text_field :skype %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :msn %><br/>
+    <%= f.text_field :msn %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :gtalk %><br/>
+    <%= f.text_field :gtalk %>
+  </div>
+
+  <div class=field>
+    <%= f.label :cpf %><br/>
+    <%= f.text_field :cpf %>
+  </div>
+
+
+  <div class=field>
+    <%= f.label :rg %><br/>
+    <%= f.text_field :rg %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :gender %><br/>
+    <%= f.collection_select :gender_id, Gender.all, :id, :name, :include_blank=>true %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :birth %><br/>
+    <%= f.date_select :birth, :start_year=>1900, :end_year=>Time.now.year, :include_blank=>true %>
+    <%= "Sua idade é #{MyTools.age_in_completed_years(@user.birth,Time.now)} anos" if @user.birth? %>
+  </div>
+
+  <div class=field>
+    <%= f.label :avatar %><br/>
+    <%= image_tag(@user.avatar_url(:thumb),:rel=>"#show_my_avatar")%> 
+    <%= f.file_field :avatar %>
+  </div>
+  
+  <div class=field>
+    <%= f.label :remove_avatar %><br/>
+    <%= f.check_box :remove_avatar %>
+  </div>
+
+  <%= button_submit_tag "Atualizar" %>
+
+
+<% end %>
+
+<div class="simple_overlay" id="show_my_avatar">
+  <%= image_tag @user.avatar_url(:normal) %>
+</div>

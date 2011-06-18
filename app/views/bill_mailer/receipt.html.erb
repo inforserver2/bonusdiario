@@ -1,0 +1,12 @@
+<p><strong><%= @bill.contract.user.nick %></strong>, recebemos o seu pagamento referente à:</p>
+
+<p>
+  <strong>Fatura</strong> <%=@bill.id %><br />
+  <strong>Valor</strong> <%=@bill.value.reais_contabeis %><br />
+  <strong>Descrição</strong> <%=@bill.description %><br />
+</p>
+
+  <p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+  </p>
+

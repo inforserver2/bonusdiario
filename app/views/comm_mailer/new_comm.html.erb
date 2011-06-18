@@ -1,0 +1,12 @@
+<p>
+  <strong><%= @comm.user.nick %></strong>, foi inserido uma nova comissão para você. Segue abaixo as referências:</p>
+<p>
+  <strong>Valor</strong> <%=@comm.value.reais_contabeis %><br />
+  <strong>Tipo</strong> <%=@comm.comm_type.name %><br />
+</p>
+
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>
+

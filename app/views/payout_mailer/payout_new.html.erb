@@ -1,0 +1,26 @@
+<p>
+  <strong> Olá <%= @payout.user.nick %></strong>, uma nova ordem de comissionamento foi adicionada em sua conta.</p>
+
+<table cellspacing="0">
+  <tr>
+    <th>ordem id</th>
+    <td><%=@payout.id  %></td>
+  </tr>
+  <tr>
+    <th>valor</th>
+    <td><%=@payout.value.reais_contabeis  %></td>
+  </tr>
+  <tr>
+    <th>status</th>
+    <td><%=trans_payout_status @payout.status  %></td>
+  </tr>
+
+</table>
+
+<p>Veja mais detalhes em seu escritório virtual.</p>
+<p>Voce receberá mais informações por email tão logo que esta transferência for concluída.</p>
+
+<p>Atenciosamente,<br />
+  <strong><%= CFG['company'] %></strong>
+</p>
+

@@ -1,0 +1,23 @@
+<h2>Contato</h2>
+<table cellspacing="0">
+  <tr>
+    <td>Nome:</td>
+    <td><%= @user.fullname %></td>
+  </tr>
+  <tr>
+    <td>Identificação: (Id/Login)</td>
+    <td><%= [@user.id,@user.name].join(" / ") %></td>
+  </tr>
+  <tr>
+    <td>Emails:</td>
+    <td><%= [@user.email1,@user.email2].compact.join("; ") %></td>
+  </tr>
+  <tr>
+    <td>Assunto:</td>
+    <td><%= @support[:subject] %></td>
+  </tr>
+  <tr>
+    <td>Mensagem:</td>
+    <td><%= simple_format @support[:message] %></td>
+  </tr>
+</table>
