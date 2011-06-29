@@ -1,7 +1,7 @@
 #encoding: UTF-8
 class Office::ApplicationController < ApplicationController
 
-  before_filter :subdomain_filter,:require_login
+  before_filter :require_login,:preliminar
   skip_before_filter :modules
 
   layout "member"

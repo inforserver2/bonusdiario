@@ -15,3 +15,12 @@
   <li><%= link_to "Suporte", new_office_support_path %></li>
   <li><%= link_to "Sair", sign_out_path %></li>
 </ul>
+
+<% if current_user.admin? %>
+  <ul>
+    <caption>Funções administrativas</caption>
+    <li><%= link_to "Adicionar usuários fakes", new_admin_setup_path  %></li>
+    <li><%= link_to "Contas", admin_bills_path  %></li>
+  </ul>
+  
+<% end %>

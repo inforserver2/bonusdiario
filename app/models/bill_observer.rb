@@ -15,7 +15,7 @@ class BillObserver < ActiveRecord::Observer
   end
 
   def after_update bill
-    if bill.status_was==0 && bill.status==1
+    if (bill.status_was==0 || bill.status_was==2) && bill.status==1
       bill.contract.update_attributes(:status=>1, :mail=>bill.mail)
       bill.bill_setup.update_attributes(:money=>bill.money,:comm=>bill.comm, :mail=>bill.mail)
       bill.contract.create_cycle(:cycle_type_id=>bill.contract.service.id, :from_cycle_id=>bill.from_cycle_id, :mail=>bill.mail)
@@ -37,7 +37,13 @@ class BillObserver < ActiveRecord::Observer
   end
 
   def before_create bill
+    
+    bill.money = bill.money=="1" || bill.money==true ? true : false
+    bill.comm = bill.comm=="1" || bill.comm==true ? true : false
+    bill.mail = bill.mail=="1" || bill.mail==true ? true : false
+    
     bill.token=SecureRandom.hex 
+
   end
 
 end

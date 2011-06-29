@@ -1,0 +1,37 @@
+<h2>Contas</h2>
+
+<%= form_for @search, :url=>admin_bills_path do |f| %>
+
+  <%= f.label "referência" %>
+  <%= f.text_field :id_equals %>
+  <%= f.label "usuário" %>
+  <%= f.text_field :contract_user_name_contains %>
+  <%= f.label "status" %>
+  <%= f.select :status_equals, [["pendente","0"],["pago","1"],["cancelado","2"]], :include_blank=>true %>
+  <%= f.submit "Filtrar" %>
+  
+<% end %>
+
+<table cellspacing="0">
+  <tr>
+    <th>referência</th>
+    <th>usuário</th>
+    <th>valor</th>
+    <th>status</th>
+    <th>mais</th>
+  </tr>
+
+  <% for item in @bills %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= item.contract.user.name %></td>
+      <td><%= item.value.reais_contabeis %></td>
+      <td><%= trans_bill_status item.status %></td>
+      <td><%= link_to "ver", edit_admin_bill_path(item) %></td>
+    </tr>
+  
+  <% end %>
+
+</table>
+
+<%= paginate @bills %>

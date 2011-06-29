@@ -21,6 +21,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :rg
       t.date :birth
       t.string :avatar
+      t.boolean :admin
       t.references :gender, :default=>0
       t.references :address
       t.references :bank_account

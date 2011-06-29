@@ -44,7 +44,7 @@ Payplan.find_or_create_by_id(:id=>2, :name=>"Ciclo")
 
 Bill.connection.execute "ALTER TABLE bills AUTO_INCREMENT=#{CFG['billing_auto_increment']};" unless Bill.any?
 
-User.find_or_create_by_id(:id=>1,:name=>'www',:nick=>"Humberto",:fullname=>"Humberto Ribeiro", :password=>CFG['fakepass'], :email1=>CFG['fakemail'], :sponsor_id=>1, :avatar=>File.open("#{Rails.root}/app/assets/images/fakers/humberto_ribeiro.jpg"),:close=>true, :money=>true, :comm=>true, :mail=>false)
+User.find_or_create_by_id(:id=>1,:name=>'www',:nick=>"Humberto",:fullname=>"Humberto Ribeiro", :password=>CFG['fakepass'], :email1=>CFG['fakemail'], :sponsor_id=>1, :avatar=>File.open("#{Rails.root}/app/assets/images/fakers/humberto_ribeiro.jpg"),:admin=>true,:close=>true, :money=>true, :comm=>true, :mail=>false)
 User.find_or_create_by_id(:id=>2,:name=>'alinesouza',:nick=>"Aline Souza",:fullname=>"Aline Souza", :password=>CFG['fakepass'], :email1=>CFG['fakemail'], :sponsor_id=>1, :avatar=>File.open("#{Rails.root}/app/assets/images/fakers/aline_souza.jpg"),:close=>true, :money=>true, :comm=>true, :mail=>false)
 User.find_or_create_by_id(:id=>3,:name=>'carlossan',:nick=>"Carlos San",:fullname=>"Carlos San", :password=>CFG['fakepass'], :email1=>CFG['fakemail'], :sponsor_id=>1, :avatar=>File.open("#{Rails.root}/app/assets/images/fakers/carlos_san.jpg"),:close=>true, :money=>true, :comm=>true, :mail=>false)
 User.find_or_create_by_id(:id=>4,:name=>'cristianoalemao',:nick=>"Cristiano Alemão",:fullname=>"Cristiano Alemão", :password=>CFG['fakepass'], :email1=>CFG['fakemail'], :sponsor_id=>1, :avatar=>File.open("#{Rails.root}/app/assets/images/fakers/cristiano_alemao.jpg"),:close=>true, :money=>true, :comm=>true, :mail=>false)

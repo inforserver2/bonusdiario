@@ -1,4 +1,5 @@
-class Admin::SetupsController < ApplicationController
+class Admin::SetupsController < Admin::ApplicationController
+
   def new
     @user=User.new
   end
@@ -35,4 +36,5 @@ class Admin::SetupsController < ApplicationController
       render :new
     end
   end
+
 end

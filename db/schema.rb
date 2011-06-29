@@ -240,6 +240,7 @@ ActiveRecord::Schema.define(:version => 20110610122116) do
     t.string   "rg"
     t.date     "birth"
     t.string   "avatar"
+    t.boolean  "admin"
     t.integer  "gender_id",       :default => 0
     t.integer  "address_id"
     t.integer  "bank_account_id"

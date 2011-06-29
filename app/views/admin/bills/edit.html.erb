@@ -1,0 +1,32 @@
+<%= link_to "Voltar", :back %>
+<h2>Conta</h2>
+<%= form_for [:admin,@bill] do |f| %>
+
+  <%= render :partial => "partials/errors", :locals=>{:obj=>@bill} %>
+  <table cellspacing="0">
+    <tr><th>Referência</th><td><%= @bill.id %></td> </tr>
+    <tr><th>Status</th><td><%= trans_bill_status @bill.status %></td> </tr>
+  </table>
+
+
+<% if @bill.status!=1 %>
+  <div class="field">
+    <%= f.label :money %><br/>
+    <%= f.check_box :money %>
+  </div>
+  <div class="field">
+  <%= f.label :comm %><br/>
+  <%= f.check_box :comm %>
+  </div>
+  <div class="field">
+  <%= f.label :mail %><br/>
+  <%= f.check_box :mail %>
+  </div>
+  <div class="action">
+    <%= f.submit %>
+  </div>
+  
+<% end %>
+
+  
+<% end %>

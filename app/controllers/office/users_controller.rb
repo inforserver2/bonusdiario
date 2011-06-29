@@ -1,4 +1,5 @@
 class Office::UsersController < Office::ApplicationController
+  
   load "my_tools.rb"
   def show
   end

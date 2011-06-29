@@ -2,10 +2,6 @@ class UserObserver < ActiveRecord::Observer
 
   def after_create(user)
     
-    user.close = user.close=="1" || user.close==true ? true : false
-    user.money = user.money=="1" || user.money==true ? true : false
-    user.comm = user.comm=="1" || user.comm==true ? true : false
-    user.mail = user.mail=="1" || user.mail==true ? true : false
 
     #service1=Service.select([:id,:price]).find(user.plan || 1)
     service1=Service.select([:id,:price]).find(1)
@@ -39,9 +35,16 @@ class UserObserver < ActiveRecord::Observer
   end
 
   def before_create(user)
+
+    user.close = user.close=="1" || user.close==true ? true : false
+    user.money = user.money=="1" || user.money==true ? true : false
+    user.comm = user.comm=="1" || user.comm==true ? true : false
+    user.mail = user.mail=="1" || user.mail==true ? true : false
+    
     user.token=SecureRandom.hex
     user.create_address(:country_id=>29)
     user.create_bank_account
+
   end
 
   def before_save(user)

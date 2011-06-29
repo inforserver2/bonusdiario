@@ -25,6 +25,7 @@ Tipegoo::Application.routes.draw do
  
   namespace :admin do
     resources :setups, :only=>[:new,:create] 
+    resources :bills, :only=>[:index,:edit,:update] 
   end
   
   namespace :office do

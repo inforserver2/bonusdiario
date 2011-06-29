@@ -10,6 +10,7 @@ attr_accessor :plan, :qty
 attr_accessor :person #{1:mass}
 attr_accessor :pwd_changes, :new_password,:new_password_confirmation,:old_password
 
+
 has_many :contracts, :dependent=>:destroy
 has_many :cycles, :through => :contracts
 has_many :bills, :through => :contracts

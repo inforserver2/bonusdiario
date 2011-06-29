@@ -1,6 +1,6 @@
 #encoding: UTF-8
 class UsersController < ApplicationController
-
+  
   layout "full", :only=>[:new,:create]
   # GET /users/new
   # GET /users/new.json

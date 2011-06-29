@@ -10,7 +10,7 @@ class Office::HomeController < Office::ApplicationController
       @level3=User.where(:sponsor_id=>@level2.map(&:id))
       @level4=User.where(:sponsor_id=>@level3.map(&:id))
       @level5=User.where(:sponsor_id=>@level4.map(&:id))
-      @cycles=current_user.cycles.order(:cycle_type_id, "id desc").limit(1)
+      @cycles=current_user.cycles.order(:cycle_type_id, "id asc").limit(1)
     end
     
 

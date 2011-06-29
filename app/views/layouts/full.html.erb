@@ -24,13 +24,15 @@
       <%= yield %>
   </div>
 
-  <div class="span-36 bottom">
+</div>
+<div class="bottom">
+  <%= image_tag "logo.gif" %>
     <p><%= link_to "Atendimento Online", CFG['conference_url'], :target=>"_blank" %> das 9:30 às 11:30 e 14:30 às 17:30</p>
     <p><%= link_to "HelpDesk 24 horas", new_office_support_path  %></p>
     <p>Telefones: (11)3522-9014 / (71)91357224</p>
     <p>Todos os direitos reservados para <%= link_to "Inforserver Marketing Multiníveis Ltda", "http://www.inforserver.com.br", :target=>"_blank" %></p> 
   </div>
-</div>
+  <div class="clear"></div>
 
 
 
